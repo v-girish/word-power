@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
+const port = process.env.PORT || 3000
+
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     compress: true,
@@ -20,7 +22,7 @@ new WebpackDevServer(webpack(config), {
         timings: true,
         version: false
     }
-}).listen(3000, 'localhost', function (err) {
+}).listen(port, 'localhost', function (err) {
     if (err) {
         console.log(err);
     }
