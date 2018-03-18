@@ -7,7 +7,7 @@
     "pretest": "eslint --ext .js,.jsx .",
     "test": "jest -u",
     "start": "node ./config/server",
-    "build": "rimraf dist && webpack --mode development --config ./config/webpack.config.js --progress --profile --colors"
+    "build": "rimraf dist && webpack --mode production --config ./config/webpack.prod.config.js --progress --profile --colors"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +38,7 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"

@@ -34,7 +34,7 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development')
         }),
         new ExtractTextPlugin('[name]-dev.css'),
-        new OpenBrowserPlugin({url: 'http://localhost:3000'})
+        new OpenBrowserPlugin({url: 'http://localhost:'+(process.env.PORT || 3000)})
     ],
     module : {
         rules: [
