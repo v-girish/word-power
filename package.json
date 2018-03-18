@@ -7,6 +7,7 @@
     "pretest": "eslint --ext .js,.jsx .",
     "test": "jest -u",
     "start": "node ./config/server",
+    "heroku-postbuild": "npm run build",
     "build": "rimraf dist && webpack --mode production --config ./config/webpack.prod.config.js --progress --profile --colors"
   },
   "keywords": [],
