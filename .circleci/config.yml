@@ -36,10 +36,22 @@ jobs:
       # run tests!
       - run: npm test
   deployment:
-    production:
-      branch: master
-      heroku:
-        appname: word-power
+    machine:
+      enabled: true
+    working_directory: ~/repo
+    environment:
+      HEROKU_APP: "word-power"
+    steps:
+      - checkout
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh
+
+      - run:
+          command: |
+            git push heroku master
+            sleep 5 # sleep for 5 seconds to wait for dynos
+            heroku restart
 workflows:
   version: 2
   build-and-deploy:
